@@ -185,3 +185,17 @@ input {
 nav{
   clear: both;
 }
+
+/*experiment with block columns*/
+.wp-block-columns{
+  flex-wrap: wrap;
+
+}
+.wp-block-column{
+  min-width: 250px;
+  padding: 1em;
+
+}
+.banana{
+  background-color: yellow;
+}

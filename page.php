@@ -16,6 +16,11 @@ get_header();
 				</h2>
 				<div class="entry-content">
 					<?php the_content(); ?>
+					<?php wp_link_pages(array(
+						'before' => '<div class="post-pagination">Keep Reading: ',
+						'after'	=> '</div>',
+						'next_or_number'	=> 'next',
+					)); ?>
 				</div>
 				
 			</article>

@@ -56,4 +56,81 @@ function bananabread(){
 	echo 'Why is it so delicious';
 }
 
+
+/*
+Navigation Menus
+1. Register them here
+2. Display them in place (header.php?)
+3. Go to appearance > menus and click buttons
+*/
+add_action('init', 'mmc_menu_setup');
+function mmc_menu_setup(){
+	register_nav_menus(array(
+		'main_nav' 		=> 'Main Navigation',
+		'footer_menu'	=> 'Footer Menu',
+	));
+}
+
+
+/*
+Pagination function
+*/
+//add_action( 'loop_start', 'mmc_pagination' );
+add_action( 'loop_end', 'mmc_pagination' );
+function mmc_pagination(){
+	?>
+	<section class="pagination">
+		<?php 
+		//single vs archive pagination
+		if( is_singular() ){
+			//single
+			previous_post_link('%link', '&larr; Previously: %title');
+			next_post_link('%link', 'Next: %title &rarr;');
+		}elseif( ! is_singular() AND wp_is_mobile() ){
+			//archive
+			previous_posts_link('&larr; Previous'); 
+			next_posts_link('Next &rarr;'); 
+		}else{
+			//desktop - do the numbered pagination
+			the_posts_pagination();
+		}
+		?>
+	</section>
+	<?php 
+}
+
+/*
+Widget Areas
+AKA Dynamic Sidebars
+1. Register them here
+2. Display them in place (sidebar.php? footer? wherever?)
+3. Go to appearance > widgets and add blocks
+*/
+add_action('widgets_init', 'mmc_widget_areas');
+function mmc_widget_areas(){
+	register_sidebar(array(
+		'name' 			=> 'Blog Sidebar',
+		'id'			=> 'blog_sidebar',
+		'description' 	=> 'These blocks will appear next to all archives and posts',
+		'before_widget'	=> '<div id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</div>',
+	));	
+
+	register_sidebar(array(
+		'name' 			=> 'Page Sidebar',
+		'id'			=> 'page_sidebar',
+		'description' 	=> 'These blocks will appear Next to 2-column pages',
+		'before_widget'	=> '<div id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</div>',
+	));	
+
+	register_sidebar(array(
+		'name' 			=> 'Footer Area',
+		'id'			=> 'footer_area',
+		'description' 	=> 'These blocks will appear at the bottom of everything',
+		'before_widget'	=> '<div id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</div>',
+	));	
+}
+
 //no close php

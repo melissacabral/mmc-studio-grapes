@@ -35,5 +35,5 @@ get_header();
 
 		
 
-<?php get_sidebar(); ?>
+<?php get_sidebar('page'); //include sidebar-page.php ?>
 <?php get_footer(); ?>

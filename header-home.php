@@ -12,6 +12,7 @@
 	<div class="site">
 		<header class="header">
 			<div class="header-bar">
+				THIS HEADER IS GONNA BE GIANT
 				<?php the_custom_logo(); ?>
 
 				<h1 class="site-title">
