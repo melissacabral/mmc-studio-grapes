@@ -1,4 +1,9 @@
-<?php get_header(); //requires header.php ?>
+<?php 
+/*
+Template Name: Two Columns
+*/
+
+get_header(); //requires header.php ?>
 		<main class="content">
 
 			<?php //The Loop
@@ -46,6 +51,6 @@
 			
 		</main>
 		<!-- end .content -->
-		
-<?php get_sidebar('page'); //require sidebar-page.php ?>		
+	
+<?php get_sidebar('page');  //require sidebar-page.php ?>
 <?php get_footer();  //require footer.php ?>

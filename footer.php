@@ -8,10 +8,10 @@
 
 			<?php 
 			//widget area registered in functions.php
-			dynamic_sidebar('footer_area'); 
-			?>
+			dynamic_sidebar('footer-area'); ?>
 		</footer>
-	</div> <!-- end .site from header-->
-<?php wp_footer(); //HOOK. required for plugins and the admin bar ?>
+	</div>
+
+<?php wp_footer(); //HOOK. required for admin bar and plugins to work. ?>
 </body>
 </html>
