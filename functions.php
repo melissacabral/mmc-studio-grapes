@@ -1,5 +1,9 @@
 <?php
 //activate sleeping features
+
+// 				$name, $width, $height, $crop
+add_image_size( 'wide-banner', 1200, 400, true );
+
 add_theme_support('post-thumbnails');
 
 add_theme_support('custom-background');
